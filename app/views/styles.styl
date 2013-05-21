@@ -1,0 +1,111 @@
+// nib is a powerful lib for stylus that provides cross-browser css3 mixins.
+// No more vendor prefixes. http://visionmedia.github.com/nib/
+@import 'nib'
+
+// Apply a natural box layout model to all elements.
+// http://paulirish.com/2012/box-sizing-border-box-ftw/
+*
+  box-sizing: border-box
+
+body
+  padding: 10px
+  background-color: #F5F1E8
+
+body > div
+  width: 500px
+  margin: 0 auto
+
+.info-view
+  padding: 15px;
+  margin: 20px 0;
+  position: relative;
+  background: #fbfbfb;
+  border-radius: 3px;
+  border: 1px solid #cbcbcb;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.09), inset 0px 0px 2px 2px rgba(255, 255, 255, 0.5), inset 0 0 5px 5px rgba(255, 255, 255, 0.4);
+
+.inner-view
+  border: 1px solid #cbcbcb
+  padding: 5px
+
+nav > a
+  &.active
+    text-decoration: underline
+
+dt
+  float: left
+  width: 100px
+  text-align: right
+  clear: left
+  font-weight: bold
+
+dt, dd
+  line-height: 30px
+
+h1, h2, h3, h4, h5, h6
+  color: #333
+  margin: 0 0 10px
+
+p, ul, ol, table, pre, dl
+  margin: 0 0 20px
+
+
+h1, h2, h3
+  line-height: 1.1
+
+
+h1
+  font-size: 28px
+
+
+h2
+  font-size: 24px
+  color: #393939
+  border-bottom: 1px solid #ddd
+  padding-bottom: 5px
+
+h3
+  font-size: 18px
+  line-height: 24px
+
+h3, h4, h5, h6
+  color: #666666
+
+a
+  color: #ff5d55
+  text-decoration: none
+
+a:hover
+  color: #FF2D22
+
+code {
+  font-family: "Lucida Sans", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  font-size: 13px;
+  background: #eee;
+  color: #666;
+  margin: 0 4px;
+  padding: 3px 6px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+pre {
+  padding: 8px 15px;
+  background: #eee;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  overflow: auto;
+  overflow-y: hidden;
+}
+.user {
+  display: inline-block;
+  padding: 2px;
+  font-family: "Helvetica Neue", Helvetica, Arial, serif;
+  text-align: center;
+}
+.user-details {width: 125px;}
+.cell {width: 125px; height: 160px; display: inline-block;}
+a, a:visited {color: #FF69B4;}
+.user-avatar {width: 100px;}
+.user-preview {width: 70px;}
+.user-preview > .user-avatar {width: 60px;}
