@@ -1,5 +1,5 @@
 <ul>
-  {{#each logins}}
-    <li><a href="{{url "users#show" this}} ">@{{this}}</a></li>
+  {{#each items}}
+    <li><a href="{{url "users#show" this.login}}">@{{this.login}}</a></li>
   {{/each}}
 </ul>

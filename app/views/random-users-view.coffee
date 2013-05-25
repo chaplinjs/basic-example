@@ -1,13 +1,6 @@
-template = require 'views/templates/user'
+template = require 'views/templates/random-users'
 View = require 'views/base/view'
 
 module.exports = class RandomUsersView extends View
   className: 'random-users cell'
-  events:
-    'click .shuffle': 'shuffle'
-  listen:
-    'sync model': 'render'
   template: template
-
-  shuffle: (event) ->
-    @model.shuffle()
