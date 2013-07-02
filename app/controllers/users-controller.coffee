@@ -1,5 +1,4 @@
 Chaplin = require 'chaplin'
-Controller = require 'controllers/base/controller'
 RandomUsersView = require 'views/random-users-view'
 UserView = require 'views/user-view'
 SiteView = require 'views/site-view'
