@@ -15,6 +15,20 @@ that uses [Chaplin](http://chaplinjs.org) web framework on top of Backbone MVC l
 
 See [Chaplin site](http://chaplinjs.org) for docs and more info.
 
+## How it works
+1. Route (URL) match.
+2. Controller initialization.
+3. Model and view initialization.
+
+1. When you navigate to URL in Chaplin application,
+Chaplin.Router instance tries to match URL against
+all routes defined in `routes` property passed to
+`Chaplin.Application` (see `app/initialize`).
+2. If successful, Chaplin.Dispatcher loads corresponding controller.
+If route specifies `users#show`, it will load `controllers/users-controller`.
+3. Controller initializes models and views as instance properties.
+Previous controller and its models / views are auto-cleaned-up.
+
 ## License
 The MIT license.
 
