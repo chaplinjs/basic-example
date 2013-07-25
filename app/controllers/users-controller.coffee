@@ -10,7 +10,8 @@ SiteView = require 'views/site-view'
 # instance properties (models, views etc).
 module.exports = class UsersController extends Chaplin.Controller
   # Would be executed before each action.
-  # We need to persist
+  # We do `composing` for views and things that should persist
+  # within many controllers — all non-composed views are deleted.
   beforeAction: ->
     # Site view declares “main” region.
     @compose 'site', SiteView

@@ -1,4 +1,4 @@
-View = require 'views/base/view'
+View = require 'views/base-view'
 
 module.exports = class UserView extends View
   className: 'user'
