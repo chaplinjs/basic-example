@@ -1,8 +1,14 @@
-Chaplin = require 'chaplin'
-Controller = require 'controllers/base/controller'
 RandomUsersView = require 'views/random-users-view'
 UserView = require 'views/user-view'
 SiteView = require 'views/site-view'
+
+# User model. Will
+# Inherits from Chaplin model which inherits from Backbone model.
+class User extends Chaplin.Model
+  # Corresponds to stuff like https://api.github.com/users/paulmillr
+  url: ->
+    login = @get 'login'
+    "https://api.github.com/users/#{login}"
 
 module.exports = class UsersController extends Chaplin.Controller
   # Would be executed before each action.
@@ -29,6 +35,6 @@ module.exports = class UsersController extends Chaplin.Controller
 
   show: (params) ->
     # Initialize new model with custom `url` attribute.
-    @model = new Chaplin.Model {}, url: "https://api.github.com/users/#{params.login}"
+    @model = new User login: params.login
     @view = new UserView {@model, region: 'main'}
     @model.fetch().then @view.render

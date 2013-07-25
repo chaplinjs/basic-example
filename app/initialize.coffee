@@ -1,5 +1,6 @@
-Chaplin = require 'chaplin'
 routes = require 'routes'
 
+# Execute handler on document ready event.
 jQuery ->
-  new Chaplin.Application().initialize(routes: routes, controllerSuffix: '-controller')
+  # Initialise new Chaplin application. Specify controller suffix for clarify.
+  new Chaplin.Application {routes, controllerSuffix: '-controller'}
