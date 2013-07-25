@@ -1,15 +1,13 @@
+User = require 'models/user'
 RandomUsersView = require 'views/random-users-view'
 UserView = require 'views/user-view'
 SiteView = require 'views/site-view'
 
-# User model. Will
-# Inherits from Chaplin model which inherits from Backbone model.
-class User extends Chaplin.Model
-  # Corresponds to stuff like https://api.github.com/users/paulmillr
-  url: ->
-    login = @get 'login'
-    "https://api.github.com/users/#{login}"
-
+# Main application controller.
+# Controllers manage memory and initialize models with views,
+# storing them on current controller instance.
+# When URL is changed, controller disposes itself and all
+# instance properties (models, views etc).
 module.exports = class UsersController extends Chaplin.Controller
   # Would be executed before each action.
   # We need to persist
@@ -22,19 +20,19 @@ module.exports = class UsersController extends Chaplin.Controller
     # Create simple collection with random GitHub users.
     @collection = new Chaplin.Collection [
       {login: 'paulmillr'},
+      {login: 'molily'},
       {login: 'paulirish'},
       {login: 'addyosmani'},
       {login: 'sindresorhus'},
-      {login: 'molily'},
       {login: 'dhh'},
       {login: 'mehcode'}
     ]
 
-    # Render the collection to.
+    # Render the collection to view.
     @view = new RandomUsersView {@collection, autoRender: true, region: 'main'}
 
   show: (params) ->
-    # Initialize new model with custom `url` attribute.
+    # Initialize new User with login from URL params.
     @model = new User login: params.login
     @view = new UserView {@model, region: 'main'}
     @model.fetch().then @view.render

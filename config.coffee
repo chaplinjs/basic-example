@@ -7,11 +7,7 @@ exports.config =
         'javascripts/vendor.js': /^(?!app)/
 
     stylesheets:
-      joinTo:
-        'stylesheets/app.css': /^(?!test)/
-        'test/stylesheets/test.css': /^test/
-      order:
-        after: ['vendor/styles/helpers.css']
+      joinTo: 'stylesheets/app.css'
 
     templates:
       joinTo: 'javascripts/app.js'

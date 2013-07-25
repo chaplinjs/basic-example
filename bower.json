@@ -5,7 +5,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "components"
+    "bower_components"
   ],
   "dependencies": {
     "chaplin": "~0.10.0",

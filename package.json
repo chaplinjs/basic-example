@@ -4,10 +4,7 @@
   "description": "Package description",
   "version": "0.0.1",
   "homepage": "",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
+  "repository": "",
   "scripts": {
     "start": "brunch watch --server",
     "test": "brunch test"
