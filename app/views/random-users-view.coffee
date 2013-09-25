@@ -1,4 +1,4 @@
-View = require 'views/base-view'
+View = require '/views/base/view'
 
 module.exports = class RandomUsersView extends View
   className: 'random-users cell'
