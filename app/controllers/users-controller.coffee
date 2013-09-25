@@ -3,6 +3,16 @@ RandomUsersView = require 'views/random-users-view'
 UserView = require 'views/user-view'
 SiteView = require 'views/site-view'
 
+fixture = [
+  {login: 'paulmillr'},
+  {login: 'molily'},
+  {login: 'paulirish'},
+  {login: 'addyosmani'},
+  {login: 'sindresorhus'},
+  {login: 'dhh'},
+  {login: 'mehcode'}
+]
+
 # Main application controller.
 # Controllers manage memory and initialize models with views,
 # storing them on current controller instance.
@@ -19,18 +29,12 @@ module.exports = class UsersController extends Chaplin.Controller
   # Index action. Will just display a list of users.
   index: (params) ->
     # Create simple collection with random GitHub users.
-    @collection = new Chaplin.Collection [
-      {login: 'paulmillr'},
-      {login: 'molily'},
-      {login: 'paulirish'},
-      {login: 'addyosmani'},
-      {login: 'sindresorhus'},
-      {login: 'dhh'},
-      {login: 'mehcode'}
-    ]
-
+    @collection = new Chaplin.Collection fixture
     # Render the collection to view.
-    @view = new RandomUsersView {@collection, autoRender: true, region: 'main'}
+    @view = new RandomUsersView {
+      autoRender: true,
+      @collection, region: 'main'
+    }
 
   show: (params) ->
     # Initialize new User with login from URL params.
